@@ -3,7 +3,7 @@ import os
 import subprocess
 import time
 
-# Time limit for execution in milliseconds
+# Time limit for execution in seconds
 LIMIT = .5
 
 def run(code):
