@@ -3,12 +3,12 @@ import os
 import subprocess
 import time
 
+# Time limit for execution in milliseconds
 LIMIT = .5
 
 def run(code):
 	p = subprocess.Popen(['lua', '-e', code], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
 	start = time.time()
-	result = False
 	output = ''
 	while p.returncode == None:
 		p.poll()
@@ -20,7 +20,6 @@ def run(code):
 			break
 
 	if p.returncode == 0:
-		result = True
 		output = p.stdout.read()
 	elif p.returncode > 0:
 		output = p.stderr.read()
